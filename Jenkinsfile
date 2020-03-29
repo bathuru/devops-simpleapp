@@ -6,10 +6,9 @@ node{
     stage(" Maven Build") {
       def mavenHome =  tool name: "Maven", type: "maven"
       sh "${mavenHome}/bin/mvn clean -Dversion=${BUILD_NUMBER} package "
-      sh "echo ${WORKSPACE}"
     }
 
-    stage('Copy to Nexux Repo'){
+    stage('Copy to Nexus Repo'){
                     nexusPublisher  nexusInstanceId: 'NexusRepoServer',
                    nexusRepositoryId: 'DevopsNexusRepo',
                             packages: [[$class: 'MavenPackage',
