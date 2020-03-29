@@ -11,6 +11,12 @@ node{
     }
 
     stage('Build Docker Image'){
+          try{
+                  sh 'docker rm -f dashboard'
+                  sh 'docker rmi bathurudocker/simpleapp'
+                  }catch(error){
+                  //  do nothing if there is an exception
+                  }
         sh 'docker build -t bathurudocker/simpleapp:${BUILD_NUMBER} .'
     }
 
