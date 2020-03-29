@@ -5,7 +5,7 @@
 	<groupId>com.mt</groupId>
 	<artifactId>simpleapp</artifactId>
 	<packaging>war</packaging>
-	<version>${v}</version>
+	<version>${version}</version>
 
 	<name>Maven Web Application</name>
 	<url>http://mithuntechnologies.com</url>
