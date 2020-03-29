@@ -12,7 +12,7 @@ node{
 
     stage('Build Docker Image'){
           try{
-                  sh 'docker rm -f dashboard'
+                  sh 'docker rm -f simpleapp'
                   sh 'docker rmi bathurudocker/simpleapp'
                   }catch(error){
                   //  do nothing if there is an exception
