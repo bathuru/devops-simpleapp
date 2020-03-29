@@ -13,7 +13,7 @@ node{
     nexusPublisher   nexusInstanceId: 'NexusRepoServer',
                    nexusRepositoryId: 'DevopsNexusRepo',
                             packages: [[$class: 'MavenPackage',
-                      mavenAssetList: [[classifier: '', extension: '', filePath: "/Users/srinivas/.jenkins/workspace/simpleapp/target/simpleapp-SNAPSHOT-1.0.${BUILD_NUMBER}.war"]],
-                     mavenCoordinate: [artifactId: 'simpleapp', groupId: 'com.mt', packaging: 'war', version: '1.0']]]
+                      mavenAssetList: [[classifier: '', extension: '', filePath: "${WORKSPACE}/target/simpleapp-SNAPSHOT-1.0.${BUILD_NUMBER}.war"]],
+                     mavenCoordinate: [artifactId: 'simpleapp', groupId: 'com.mt', packaging: 'war', version: "SNAPSHOT-1.0.${BUILD_NUMBER}"]]]
    }
 }
