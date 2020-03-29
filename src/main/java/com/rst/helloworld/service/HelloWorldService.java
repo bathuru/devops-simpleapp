@@ -14,7 +14,7 @@ public class HelloWorldService {
 
 		logger.debug("getDesc() is executed!");
 
-		return "Maven + Spring MVC + Jenkins + Docker Example";
+		return "GitHub > Jenkins > Maven > Docker Example";
 
 	}
 
@@ -23,11 +23,11 @@ public class HelloWorldService {
 		logger.debug("getTitle() is executed! $name : {}", name);
 
 		if(StringUtils.isEmpty(name)){
-			return "Hello Docker";
+			return "Hello Devops !!!";
 		}else{
 			return "Hello " + name;
 		}
-		
+
 	}
 
 }
