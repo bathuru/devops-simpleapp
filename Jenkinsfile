@@ -10,7 +10,9 @@ node{
     }
 
     stage('Copy to Nexux Repo'){
-    nexusPublisher   nexusInstanceId: 'NexusRepoServer',
+                   def pom = readMavenPom file: 'pom.xml'
+                    nexusPublisher
+                    nexusInstanceId: 'NexusRepoServer',
                    nexusRepositoryId: 'DevopsNexusRepo',
                             packages: [[$class: 'MavenPackage',
                       mavenAssetList: [[classifier: '', extension: '', filePath: "${WORKSPACE}/target/simpleapp-SNAPSHOT-1.0.${BUILD_NUMBER}.war"]],
