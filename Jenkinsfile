@@ -28,7 +28,7 @@ node{
             sh 'docker push bathurudocker/simpleapp:${BUILD_NUMBER}'
     }
 
-      stage('Run Docker Image In Dev Server'){
+      stage('Deploy Into Dev Server'){
         sh  'docker run  -d -p 8010:8080 --name simpleapp bathurudocker/simpleapp:${BUILD_NUMBER}'
        }
 }
