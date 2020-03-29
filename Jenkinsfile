@@ -14,4 +14,5 @@ node{
                             packages: [[$class: 'MavenPackage',
                       mavenAssetList: [[classifier: '', extension: '', filePath: '/Users/srinivas/.jenkins/workspace/portal/target/simpleapp-SNAPSHOT-1.0.${BUILD_NUMBER}.war']],
                      mavenCoordinate: [artifactId: 'simpleapp', groupId: 'com.mt', packaging: 'war', version: '1.0']]]
+   }
 }
