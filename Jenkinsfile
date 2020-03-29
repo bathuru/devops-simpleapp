@@ -1,13 +1,12 @@
 node{
 
     stage('SCM Checkout'){
-        git url: 'https://github.com/bathurugithub/panda.git',branch: 'master'
+        git url: 'https://github.com/bathurugithub/panda.git', branch: 'master'
     }
 
     stage(" Maven Build"){
       def mavenHome =  tool name: "Maven", type: "maven"
-      def mavenCMD = "${mavenHome}/bin/mvn"
-      sh "${mavenCMD} clean package"
+      sh "${mavenHome}/bin/mvn clean package"
     }
 
     stage('Build & Push Docker Image'){
