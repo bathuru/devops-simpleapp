@@ -5,11 +5,11 @@ node{
 
     stage(" Maven Build") {
       def mavenHome =  tool name: "Maven", type: "maven"
-      sh "${mavenHome}/bin/mvn clean package -Dbuild.number=${BUILD_NUMBER}"
+      sh "${mavenHome}/bin/mvn clean package -Dversion=${BUILD_NUMBER}"
     }
 
     stage('Build & Push Docker Image'){
-      sh "Build & Push Docker Image'"
+      sh "echo Build & Push Docker Image'"
     }
 
     stage('Deploy Into PROD') {
