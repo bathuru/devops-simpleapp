@@ -6,7 +6,7 @@ node{
 
     stage(" Maven Build") {
       def mavenHome =  tool name: "Maven", type: "maven"
-      sh "${mavenHome}/bin/mvn clean -Dproject.version=${BUILD_NUMBER} package "
+      sh "${mavenHome}/bin/mvn clean -Dproject.ver=${BUILD_NUMBER} package "
     }
 
     stage('SonarQube Analysis') {
