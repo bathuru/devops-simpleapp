@@ -18,8 +18,12 @@ node{
     }
 
       stage('Deploy Into Dev Server') {
+      try{
         sh 'docker rm -f simpleapp'
         sh 'docker rmi bathurudocker/simpleapp:${BUILD_NUMBER}'
+        }catch(error){
+        //  do nothing if there is an exception
+        }
         sh 'docker pull bathurudocker/simpleapp:${BUILD_NUMBER}'
         sh  'docker run  -d -p 8010:8080 --name simpleapp bathurudocker/simpleapp:${BUILD_NUMBER}'
        }
