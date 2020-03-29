@@ -5,7 +5,7 @@ node{
 
     stage(" Maven Build") {
       def mavenHome =  tool name: "Maven", type: "maven"
-      sh "${mavenHome}/bin/mvn clean package -dbuild.number=${BUILD_NUMBER}"
+      sh "${mavenHome}/bin/mvn clean package -Dbuild.number=${BUILD_NUMBER}"
     }
 
     stage('Build & Push Docker Image'){
