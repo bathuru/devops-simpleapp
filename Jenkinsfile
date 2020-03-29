@@ -1,10 +1,10 @@
 node{
 
-    stage('SCM Checkout'){
+    stage('SCM Checkout') {
         git url: 'https://github.com/bathurugithub/panda.git', branch: 'master'
     }
 
-    stage(" Maven Build"){
+    stage(" Maven Build") {
       def mavenHome =  tool name: "Maven", type: "maven"
       sh "${mavenHome}/bin/mvn clean package"
     }
@@ -27,7 +27,7 @@ node{
             sh 'docker push bathurudocker/simpleapp:${BUILD_NUMBER}'
     }
 
-      stage('Deploy Into Dev Server'){
+      stage('Deploy Into Dev Server') {
         sh  'docker run  -d -p 8010:8080 --name simpleapp bathurudocker/simpleapp:${BUILD_NUMBER}'
        }
 }
