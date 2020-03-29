@@ -27,8 +27,4 @@ node{
         
         sh  'docker run  -d -p 8010:8080 --name java-web-app bathurudocker/java-web-app'
        }
-       
-    }
-     
-     
 }
