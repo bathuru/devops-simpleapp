@@ -7,12 +7,4 @@ node{
       def mavenHome =  tool name: "Maven", type: "maven"
       sh "${mavenHome}/bin/mvn clean package -Dversion=${BUILD_NUMBER}"
     }
-
-    stage('Build & Push Docker Image'){
-      sh "echo Build & Push Docker Image'"
-    }
-
-    stage('Deploy Into PROD') {
-      sh "echo Deploy Into PROD"
-     }
 }
