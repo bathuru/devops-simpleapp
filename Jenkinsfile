@@ -10,8 +10,6 @@ node{
     }
 
     stage('Copy to Nexux Repo'){
-                   def pom = readMavenPom(file: 'target/pom.xml')
-                   projectArtifactId = pom.getArtifactId()
                     nexusPublisher  nexusInstanceId: 'NexusRepoServer',
                    nexusRepositoryId: 'DevopsNexusRepo',
                             packages: [[$class: 'MavenPackage',
