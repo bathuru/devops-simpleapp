@@ -1,4 +1,5 @@
 node{
+
     stage('Git Checkout') {
         git url: 'https://github.com/bathurugithub/panda.git', branch: 'master'
     }
@@ -7,6 +8,13 @@ node{
       def mavenHome =  tool name: "Maven", type: "maven"
       sh "${mavenHome}/bin/mvn clean -Dversion=${BUILD_NUMBER} package "
     }
+
+    stage('SonarQube Analysis') {
+         def mavenHome =  tool name: 'Maven', type: 'maven'
+         withSonarQubeEnv('SonarQubeServer') {
+                 sh "${mavenHome}/bin/mvn sonar:sonar"
+          }
+     }
 
     stage('Copy to Nexus Repo'){
                     nexusPublisher  nexusInstanceId: 'NexusRepoServer',
