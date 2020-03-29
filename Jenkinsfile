@@ -8,9 +8,7 @@ node{
       def mavenHome =  tool name: "Maven", type: "maven"
       def mavenCMD = "${mavenHome}/bin/mvn"
       sh "${mavenCMD} clean package"
-
     }
-
 
     stage('Build Docker Image'){
         sh 'docker build -t bathurudocker/simpleapp .'
@@ -24,7 +22,6 @@ node{
      }
 
       stage('Run Docker Image In Dev Server'){
-
         sh  'docker run  -d -p 8010:8080 --name simpleapp bathurudocker/simpleapp'
        }
 }
