@@ -5,7 +5,7 @@
 	<groupId>com.apple</groupId>
 	<artifactId>simpleapp</artifactId>
 	<packaging>war</packaging>
-	<version>SNAPSHOT-${ver}</version>
+	<version>${ver}-RELEASE</version>
 
 	<name>Maven Web Application</name>
 	<url>http://apple.com</url>

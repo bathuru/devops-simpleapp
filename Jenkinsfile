@@ -1,17 +1,23 @@
 def   VER_NUM;
+def   REL_NUM;
+def   mavenHome;
 node{
+
+    stage('Init') {
+        VER_NUM = "1.0.${BUILD_NUMBER}";
+        REL_NUM = "1.0.${BUILD_NUMBER}-RELEASE";
+        mavenHome =  tool name: "Maven", type: "maven"
+    }
+
     stage('Git Checkout') {
           git url: 'https://github.com/bathurugithub/simpleapp.git', branch: 'master'
     }
 
     stage(" Maven Build") {
-          VER_NUM = "1.0.${BUILD_NUMBER}";
-          def mavenHome =  tool name: "Maven", type: "maven"
           sh "${mavenHome}/bin/mvn clean versions:set -Dver=${VER_NUM} package "
     }
 
     stage('SonarQube Analysis') {
-         def mavenHome =  tool name: 'Maven', type: 'maven'
          withSonarQubeEnv('SonarQubeServer') {
                  sh "${mavenHome}/bin/mvn sonar:sonar"
           }
@@ -21,8 +27,8 @@ node{
                     nexusPublisher  nexusInstanceId: 'NexusRepoServer',
                    nexusRepositoryId: 'DevopsRepo',
                             packages: [[$class: 'MavenPackage',
-                      mavenAssetList: [[classifier: '', extension: '', filePath: "${WORKSPACE}/target/simpleapp-${VER_NUM}.war"]],
-                     mavenCoordinate: [artifactId: 'simpleapp', groupId: 'com.apple', packaging: 'war', version: "${VER_NUM}"]]]
+                      mavenAssetList: [[classifier: '', extension: '', filePath: "${WORKSPACE}/target/simpleapp-${REL_NUM}.war"]],
+                     mavenCoordinate: [artifactId: 'simpleapp', groupId: 'com.apple', packaging: 'war', version: "${REL_NUM}"]]]
    }
 
   /* stage('Build & Push Docker Image'){
