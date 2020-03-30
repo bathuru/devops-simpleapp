@@ -5,7 +5,7 @@ node{
     }
 
     stage(" Maven Build") {
-          VER_NUM = SNAPSHOT-1.0.${BUILD_NUMBER};
+          VER_NUM = "SNAPSHOT-1.0.${BUILD_NUMBER}";
           def mavenHome =  tool name: "Maven", type: "maven"
           sh "${mavenHome}/bin/mvn clean versions:set -DnewVersion=${VER_NUM} package "
     }
