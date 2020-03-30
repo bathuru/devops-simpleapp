@@ -6,7 +6,7 @@ node{
     stage('Init') {
         VER_NUM = "1.0.${BUILD_NUMBER}";
         REL_NUM = "1.0.${BUILD_NUMBER}.RELEASE";
-        mavenHome =  tool name: "Maven", type: "maven"
+        mavenHome =  tool name: "Maven Master", type: "maven"
     }
 
     stage('Git Checkout') {
