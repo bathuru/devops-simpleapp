@@ -6,7 +6,7 @@ node{
     stage('Init') {
         VER_NUM = "1.0.${BUILD_NUMBER}";
         REL_NUM = "1.0.${BUILD_NUMBER}.RELEASE";
-        mavenHome =  tool name: "Maven Master", type: "maven"
+        mavenHome =  tool name: "Maven Slave", type: "maven"
     }
 
     stage('Git Checkout') {
@@ -17,44 +17,51 @@ node{
           sh "${mavenHome}/bin/mvn clean versions:set -Dver=${VER_NUM} package "
     }
 
-   stage('SonarQube Analysis') {
+  /*  stage('SonarQube Analysis') {
          withSonarQubeEnv('SonarQubeServer') {
                  sh "${mavenHome}/bin/mvn sonar:sonar"
           }
-     }
-
-     stage('Upload to Nexus'){
-                     nexusPublisher  nexusInstanceId: 'NexusRepoServer',
-                    nexusRepositoryId: 'DevopsRepo',
-                             packages: [[$class: 'MavenPackage',
-                       mavenAssetList: [[classifier: '', extension: '', filePath: "${WORKSPACE}/target/simpleapp-${REL_NUM}.war"]],
-                      mavenCoordinate: [artifactId: 'simpleapp', groupId: 'com.apple', packaging: 'war', version: "${REL_NUM}"]]]
-    }
-
-    stage('Build & Push Docker Image'){
-            sh "docker build -t bathurudocker/simpleapp:${VER_NUM} ."
-            withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerpwd')]) {
-                  sh "docker login -u bathurudocker -p ${dockerpwd}"
-            }
-            sh "docker push bathurudocker/simpleapp:${VER_NUM}"
-            sh "docker rmi bathurudocker/simpleapp:${VER_NUM}"
-    }
-
-      stage('Deploy Into Dev') {
-      try{
-        sh "docker rm -f simpleapp"
-        sh "docker rmi bathurudocker/simpleapp"       //sh 'docker rmi $(docker images bathurudocker/simpleapp)''
-        }catch(error){
-        //  do nothing if there is an exception
-        }
-        sh "docker pull bathurudocker/simpleapp:${VER_NUM}"
-        sh  "docker run  -d -p 8010:8080 --name simpleapp bathurudocker/simpleapp:${VER_NUM}"
-       }
-
-  /*    stage('Deploy Into PROD') {
-       sshagent(['docker_Server_SSH']) {
-        sh "ssh -o StrictHostKeyChecking=no ec2-user@52.66.240.70  sudo docker rm -f simpleapp || true"
-        sh "ssh -o StrictHostKeyChecking=no ec2-user@52.66.240.70  sudo docker run  -d -p 8010:8080 --name simpleapp bathurudocker/simpleapp:${VER_NUM}"
-     }
      }*/
+
+    /*stage('Upload to Nexus'){
+                    nexusPublisher  nexusInstanceId: 'NexusRepoServer',
+                   nexusRepositoryId: 'DevopsRepo',
+                            packages: [[$class: 'MavenPackage',
+                      mavenAssetList: [[classifier: '', extension: '', filePath: "${WORKSPACE}/target/simpleapp-${REL_NUM}.war"]],
+                     mavenCoordinate: [artifactId: 'simpleapp', groupId: 'com.apple', packaging: 'war', version: "${REL_NUM}"]]]
+   }*/
+
+   stage('Build & Push Docker Image'){
+           sh "sudo docker build -t bathurudocker/simpleapp:${VER_NUM} ."
+           withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerpwd')]) {
+                  sh "sudo docker login -u bathurudocker -p ${dockerpwd}"
+           }
+           sh "sudo docker push bathurudocker/simpleapp:${VER_NUM}"
+           sh "sudo docker rmi bathurudocker/simpleapp:${VER_NUM}"
+   }
+
+   /*stage('Deploy Into PROD') {
+           sshagent(['docker_Server_SSH']) {
+               sh "ssh -o StrictHostKeyChecking=no ec2-user@52.66.240.70  sudo docker rm -f simpleapp || true"
+               sh "ssh -o StrictHostKeyChecking=no ec2-user@52.66.240.70  sudo docker run  -d -p 8010:8080 --name simpleapp bathurudocker/simpleapp:${VER_NUM}"
+          }
+     }*/
+
+     stage('Email Notification'){
+          emailext  bcc: '',
+          body: """Hi Team,
+
+        Your project successfully Build and Deployed.
+        Job Name: ${env.JOB_NAME}
+        Job URL : ${env.JOB_URL}
+
+        Thanks
+        DevOps Team""",
+         cc: '',
+       from: '',
+       replyTo: '',
+       subject: 'Portal - Jenkins Job Status',
+         to: 'srinivas.bathuru@gmail.com'
+       attachLog: 'true'
+     }
 }
