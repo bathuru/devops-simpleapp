@@ -5,7 +5,7 @@ node{
 
     stage('Init') {
         VER_NUM = "1.0.${BUILD_NUMBER}";
-        REL_NUM = "1.0.${BUILD_NUMBER}-RELEASE";
+        REL_NUM = "1.0.${BUILD_NUMBER}.RELEASE";
         mavenHome =  tool name: "Maven", type: "maven"
     }
 
