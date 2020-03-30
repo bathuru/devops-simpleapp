@@ -32,8 +32,7 @@ node{
    }*/
 
    stage('Build & Push Docker Image'){
-           echo "print num : ${VER_NUM}"
-           sh 'sudo docker build -t bathurudocker/simpleapp:1000 .'
+           sh "sudo docker build -t bathurudocker/simpleapp:${VER_NUM} ."
            withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerpwd')]) {
                   sh "sudo docker login -u bathurudocker -p ${dockerpwd}"
            }
