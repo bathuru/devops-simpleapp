@@ -23,6 +23,14 @@ node{
           }
      }
 
+     stage('Upload to Nexus'){
+                     nexusPublisher  nexusInstanceId: 'NexusRepoServer',
+                    nexusRepositoryId: 'DevopsRepo',
+                             packages: [[$class: 'MavenPackage',
+                       mavenAssetList: [[classifier: '', extension: '', filePath: "${WORKSPACE}/target/simpleapp-${REL_NUM}.war"]],
+                      mavenCoordinate: [artifactId: 'simpleapp', groupId: 'com.apple', packaging: 'war', version: "${REL_NUM}"]]]
+    }
+
     stage('Build & Push Docker Image'){
             sh "docker build -t bathurudocker/simpleapp:${VER_NUM} ."
             withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerpwd')]) {
