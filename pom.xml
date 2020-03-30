@@ -2,19 +2,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.mt</groupId>
+	<groupId>com.apple</groupId>
 	<artifactId>simpleapp</artifactId>
 	<packaging>war</packaging>
 	<version>SNAPSHOT-1.0.${ver}</version>
 
 	<name>Maven Web Application</name>
-	<url>http://mithuntechnologies.com</url>
+	<url>http://apple.com</url>
 
 	<description>Maven Web Project</description>
 
 	<organization>
 		<name>Mithun Technologies</name>
-		<url>http://mithuntechnologies.com/</url>
+		<url>http://apple.com/</url>
 	</organization>
 
 	<properties>
@@ -75,7 +75,6 @@
 		</dependency>
 
 		<!-- provided dependencies -->
-
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -95,21 +94,7 @@
 		    <artifactId>logback-classic</artifactId>
 		    <version>1.2.3</version>
 		</dependency>
-
 	</dependencies>
-
-	<!-- <distributionManagement>
-	    <repository>
-	      <id>nexus</id>
-	      <name>Mithun Technologies Releases Nexus Repository</name>
-	      <url>http://13.235.8.113:8081/repository/flipkart-release/</url>
-	    </repository>
-	    <snapshotRepository>
-	      <id>nexus</id>
-	      <name>Mithun Technologies Snapshot Nexus Repository </name>
-	      <url>http://13.235.8.113:8081/repository/flipkart-snapshot/</url>
-	    </snapshotRepository>
-	</distributionManagement> -->
 
 	<build>
 		<plugins>
@@ -125,6 +110,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
 </project>
