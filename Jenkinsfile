@@ -25,14 +25,14 @@ node{
                      mavenCoordinate: [artifactId: 'simpleapp', groupId: 'com.apple', packaging: 'war', version: "${VER_NUM}"]]]
    }
 
-   stage('Build & Push Docker Image'){
+  /* stage('Build & Push Docker Image'){
            sh 'docker build -t bathurudocker/simpleapp:${VER_NUM} .'
            withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerpwd')]) {
                   sh "docker login -u bathurudocker -p ${dockerpwd}"
            }
            sh 'docker push bathurudocker/simpleapp:${VER_NUM}'
            sh 'docker rmi bathurudocker/simpleapp:${VER_NUM}'
-   }
+   }*/
 
    /*stage('Deploy Into PROD') {
            sshagent(['docker_Server_SSH']) {
