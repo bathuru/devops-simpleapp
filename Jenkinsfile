@@ -46,4 +46,22 @@ node{
                sh "ssh -o StrictHostKeyChecking=no ec2-user@52.66.240.70  sudo docker run  -d -p 8010:8080 --name simpleapp bathurudocker/simpleapp:${VER_NUM}"
           }
      }*/
+
+     stage('Email Notification'){
+          emailext  bcc: '',
+          body: """Hi Team,
+
+        Your project successfully Build and Deployed.
+        Job Name: ${env.JOB_NAME}
+        Job URL : ${env.JOB_URL}
+
+        Thanks
+        DevOps Team""",
+         cc: '',
+       from: '',
+       replyTo: '',
+       subject: 'Portal - Jenkins Job Status',
+         to: 'srinivas.bathuru@gmail.com'
+       attachLog: 'true'
+     }
 }
