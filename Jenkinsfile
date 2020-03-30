@@ -14,7 +14,7 @@ node{
     }
 
     stage("Maven Build") {
-          sh "${mavenHome}/bin/mvn clean versions:set -Dver=${REL_NUM} package "
+          sh "${mavenHome}/bin/mvn clean versions:set -Dver=${VER_NUM} package "
     }
 
    stage('SonarQube Analysis') {
