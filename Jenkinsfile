@@ -13,7 +13,7 @@ node{
           git url: 'https://github.com/bathurugithub/simpleapp.git', branch: 'master'
     }
 
-    stage(" Maven Build") {
+    stage("Maven Build") {
           sh "${mavenHome}/bin/mvn clean versions:set -Dver=${VER_NUM} package "
     }
 
@@ -23,7 +23,7 @@ node{
           }
      }
 
-    stage('Copy to Nexus Repo'){
+    stage('Upload to Nexus'){
                     nexusPublisher  nexusInstanceId: 'NexusRepoServer',
                    nexusRepositoryId: 'DevopsRepo',
                             packages: [[$class: 'MavenPackage',
