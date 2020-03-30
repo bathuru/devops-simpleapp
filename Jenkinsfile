@@ -33,7 +33,7 @@ node{
 
    stage('Build & Push Docker Image'){
           sh 'cd /home/ec2-user/workspace/simpleapp/'
-           sh 'docker build -t bathurudocker/simpleapp:${VER_NUM} .'
+           sh 'docker build -t bathurudocker/simpleapp:1000 .'
            withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerpwd')]) {
                   sh "docker login -u bathurudocker -p ${dockerpwd}"
            }
