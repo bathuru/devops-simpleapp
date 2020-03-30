@@ -1,12 +1,7 @@
+def version = SNAPSHOT-1.0.${BUILD_NUMBER; 
 node{
-
     stage('Git Checkout') {
           git url: 'https://github.com/bathurugithub/simpleapp.git', branch: 'master'
-    }
-
-    stage(" Maven Build") {
-          def mavenHome =  tool name: "Maven", type: "maven"
-          sh "${mavenHome}/bin/mvn clean -Dver=${BUILD_NUMBER} package "
     }
 
     stage('SonarQube Analysis') {
@@ -15,6 +10,11 @@ node{
                  sh "${mavenHome}/bin/mvn sonar:sonar"
           }
      }
+
+    stage(" Maven Build") {
+          def mavenHome =  tool name: "Maven", type: "maven"
+          sh "${mavenHome}/bin/mvn clean -Dver=${BUILD_NUMBER} package "
+    }
 
     stage('Copy to Nexus Repo'){
                     nexusPublisher  nexusInstanceId: 'NexusRepoServer',
