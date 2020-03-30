@@ -33,12 +33,12 @@ node{
 
    stage('Build & Push Docker Image'){
           sh 'cd /home/ec2-user/workspace/simpleapp/'
-           sh 'docker build -t bathurudocker/simpleapp:1000 .'
+           sh 'sudo docker build -t bathurudocker/simpleapp:1000 .'
            withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerpwd')]) {
                   sh "docker login -u bathurudocker -p ${dockerpwd}"
            }
-           sh 'docker push bathurudocker/simpleapp:${VER_NUM}'
-           sh 'docker rmi bathurudocker/simpleapp:${VER_NUM}'
+           sh 'sudo docker push bathurudocker/simpleapp:${VER_NUM}'
+           sh 'sudo docker rmi bathurudocker/simpleapp:${VER_NUM}'
    }
 
    /*stage('Deploy Into PROD') {
