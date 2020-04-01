@@ -12,7 +12,7 @@ public class HelloWorldService {
 
 	public String getDesc() {
 		logger.debug("getDesc() is executed!");
-		return "GitHub > Jenkins > Maven > Docker Example";
+		return "GitHub > Jenkins > Maven/Docker > Ansible > Kubernetes Example";
 	}
 
 	public String getTitle(String name) {
