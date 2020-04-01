@@ -1,12 +1,15 @@
 ---
 # Header Section
   - hosts: all
+    become_user: ec2-user
 
 # Tasks Section
     tasks:
      - name: Remove Existing docker containers
        shell: sudo docker rm -f simpleapp || true
+
      - name: Remove Existing docker Images
-       shell: sudo docker rmi bathurudocker/simpleapp:latest
-     - name: Pull and run docker image
+       shell: sudo docker rmi bathurudocker/simpleapp:latest || true
+
+     - name: Pull and Run docker image
        shell: sudo docker run  -d -p 8010:8080 --name simpleapp bathurudocker/simpleapp:latest
