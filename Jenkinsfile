@@ -31,7 +31,8 @@ node{
 
    stage('Deploy Into PROD') {
            sshagent(['Ansible_Server_SSH']) {
-               sh "ssh -o StrictHostKeyChecking=no ec2-user@13.233.122.254  sudo ansible-playbook  simpleappdeploy.yml"
+               //sh "ssh -o StrictHostKeyChecking=no ec2-user@13.233.122.254  sudo ansible-playbook  simpleappdeploy.yml"
+               sh "ssh -o StrictHostKeyChecking=no ec2-user@13.233.122.254 sudo docker run  -d -p 8010:8080 --name simpleapp bathurudocker/simpleapp:latest"
           }
      }
 }
