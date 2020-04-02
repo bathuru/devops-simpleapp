@@ -9,14 +9,17 @@ node{
     }
 
     stage('Git Checkout') {
+          sh "pwd"
           git url: 'https://github.com/bathurugithub/simpleapp.git', branch: 'master'
     }
 
     stage("Maven Build") {
+          sh "pwd"
           sh "${mavenHome}/bin/mvn clean versions:set -Dver=${VER_NUM} package "
     }
 
    stage('Build & Push Docker Image'){
+           sh "pwd"
            sh "sudo docker build -t bathurudocker/simpleapp:${VER_NUM} ."
            sh "sudo docker build -t bathurudocker/simpleapp:latest ."
            withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerpwd')]) {
@@ -30,8 +33,10 @@ node{
    }
 
    stage('Deploy Into PROD') {
+           sh "pwd"
            sshagent(['Ansible-Server-SSH']) {
-               sh "ssh -o StrictHostKeyChecking=no ec2-user@13.233.122.254  sudo ansible-playbook  simpleappdeploy.yml"
+               sh "scp -o StrictHostKeyChecking=no simpleappdeploy.yml ec2-user@13.233.80.38:/home/ec2-user/"
+               sh "ssh -o StrictHostKeyChecking=no ec2-user@13.233.80.38  ansible-playbook  simpleappdeploy.yml"
           }
      }
 }
