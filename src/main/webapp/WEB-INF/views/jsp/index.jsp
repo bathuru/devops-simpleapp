@@ -31,7 +31,7 @@
 				Welcome Welcome!
 			</c:if>
 		<p>
-			<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+			<a href="<c:url value='/hello/Srini' />" >Welcome</a>
 		</p>
 	</div>
 </div>
@@ -44,7 +44,6 @@
 			<h3>Contact @ +91-8886399946</h3>
 		</div>
 	</div>
-
 
 	<hr>
 	<footer>
