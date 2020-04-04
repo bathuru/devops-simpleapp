@@ -5,8 +5,8 @@
     tasks:
      - name: Copy deploy file into kuber server
        copy:
-         src: /home/ec2-user/simpleapp-deploy-k8s.yml
-         dest: /home/ec2-user/simpleapp-deploy-k8s.yml
+         src: /home/ec2-user/simpleapp-deploy-k8s.yaml
+         dest: /home/ec2-user/simpleapp-deploy-k8s.yaml
          remote_src: yes
          owner: ec2-user
          group: ec2-user
