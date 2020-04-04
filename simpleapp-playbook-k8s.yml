@@ -1,0 +1,11 @@
+---
+- name: Create pods using deployments
+# Header Section
+  - hosts: all
+    become: true
+    user: root
+
+# Tasks Section
+    tasks:
+     - name: Deploy simpleapp in kubernets
+       command: kubectl apply -f simpleapp-deploy-k8s.yaml

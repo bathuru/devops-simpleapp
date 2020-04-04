@@ -1,8 +1,0 @@
----
-# Header Section
-  - hosts: all
-
-# Tasks Section
-    tasks:
-     - name: deploy sipleapp in kubernets
-       shell: sudo kubectl apply -f .
