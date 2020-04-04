@@ -35,8 +35,8 @@ node{
    stage('Deploy Into PROD') {
            sh "pwd"
            sshagent(['Ansible-Server-SSH']) {
-               sh "scp -o StrictHostKeyChecking=no simpleapp-service.yml simpleapp-pods.yml ec2-user@13.233.80.38:/home/ec2-user/"
-               sh "ssh -o StrictHostKeyChecking=no ec2-user@13.233.80.38  kubectl apply -f ."
+               sh "scp -o StrictHostKeyChecking=no simpleapp-deploy.yml ec2-user@52.66.213.31:/home/ec2-user/"
+               sh "ssh -o StrictHostKeyChecking=no ec2-user@52.66.213.31  kubectl apply -f ." ansible-playbook  simpleapp-deploy-playbook-k8s.yml
           }
      }
 }
