@@ -36,7 +36,7 @@ node{
            sh "pwd"
            sshagent(['Ansible-Server-SSH']) {
                sh "scp -o StrictHostKeyChecking=no simpleapp-deploy.yaml ec2-user@52.66.213.31:/home/ec2-user/"
-               sh "ssh -o StrictHostKeyChecking=no ec2-user@52.66.213.31  kubectl apply -f ." ansible-playbook  simpleapp-deploy-playbook-k8s.yml
+               sh "ssh -o StrictHostKeyChecking=no ec2-user@52.66.213.31 ansible-playbook  simpleapp-deploy-playbook-k8s.yml"
           }
      }
 }
