@@ -54,11 +54,13 @@ pipeline {
 
            stage('Deploy Into Dev') {
                   steps {
-                          try{
-                                 sh "docker rm -f simpleapp"
-                                 sh "docker rmi bathurudocker/simpleapp"       //sh 'docker rmi $(docker images bathurudocker/simpleapp)''
+                          script{
+                                try{
+                                 sh "docker rm -f simpleapp || true"
+                                 sh "docker rmi bathurudocker/simpleapp || true"       //sh 'docker rmi $(docker images bathurudocker/simpleapp)''
                                }catch(error){
                                    //  do nothing if there is an exception
+                                }
                                 }
                           sh "docker pull bathurudocker/simpleapp:${VER_NUM}"
                           sh  "docker run  -d -p 8010:8080 --name simpleapp bathurudocker/simpleapp:${VER_NUM}"
