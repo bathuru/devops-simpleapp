@@ -79,9 +79,7 @@ pipeline {
     }
         post {
                failure {
-                  steps{
                     echo “Pipeline finished”
-                    }
                }
         }
 }
