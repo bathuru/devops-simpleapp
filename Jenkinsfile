@@ -88,4 +88,5 @@ pipeline {
                     echo “Pipeline finished”
                }
       }
+  }
 }
