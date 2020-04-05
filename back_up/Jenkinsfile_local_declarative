@@ -1,6 +1,6 @@
 pipeline {
     agent {
-          label 'hello'
+          label 'master'
      }
     triggers {
           pollSCM('0 */4 * * 1-5')
