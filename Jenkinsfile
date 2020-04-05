@@ -15,9 +15,6 @@ pipeline {
      }
     stages {
          stage('Git Checkout') {
-              when {
-                   branch 'spider'
-              }
               steps {
                      echo pwd;
                      git url: 'https://github.com/bathurugithub/simpleapp.git',  branch: 'master'
@@ -30,8 +27,8 @@ pipeline {
          }
         stage('SonarQube Analysis') {
              steps {
-                    withSonarQubeEnv('SonarQubeServer') {
-                    sh "${mavenHome}/bin/mvn sonar:sonar"
+                         withSonarQubeEnv('SonarQubeServer') {
+                              sh "${mavenHome}/bin/mvn sonar:sonar"
                      }
              }
          }
