@@ -78,8 +78,14 @@ pipeline {
          }
 
         post {
+               failure {
+                    echo “Pipeline finished”
+               }
+               success {
+                    echo “Pipeline finished”
+               }
                always {
-                    echo“ Pipeline finished”
-        }
-     }
+                    echo “Pipeline finished”
+               }
+      }
 }
