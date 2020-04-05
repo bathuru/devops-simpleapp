@@ -14,17 +14,27 @@ pipeline {
           maven 'Maven Master'
      }
     stages {
-         stage('Git Checkout') {
-              steps {
+           stage ('Git Checkout') {
+                 steps {
                      echo pwd;
                      git url: 'https://github.com/bathurugithub/simpleapp.git',  branch: 'master'
-              }
-         }
-         stage("Maven Build") {
-             steps {
-                    sh "${mavenHome}/bin/mvn clean versions:set -Dver=${VER_NUM} package "
-              }
-         }
+                }
+           }
+
+    stage('Multiple Builds) {
+          parallel {
+                  stage ("Maven Build") {
+                        steps {
+                            sh "${mavenHome}/bin/mvn clean versions:set -Dver=${VER_NUM} package "
+                       }
+                  }
+                  stage ("Gradel Build") {
+                        steps {
+                            echo "Gradel Build !!!!!!!"
+                       }
+                  }
+          }
+     }
         stage('SonarQube Analysis') {
              steps {
                     withSonarQubeEnv('SonarQubeServer') {
@@ -32,7 +42,7 @@ pipeline {
                      }
              }
          }
-         stage('Upload to Nexus') {
+         stage ('Upload to Nexus') {
                   steps {
                            nexusPublisher  nexusInstanceId: 'NexusRepoServer',
                            nexusRepositoryId: 'DevopsRepo',
@@ -52,7 +62,7 @@ pipeline {
                  }
           }
 
-           stage('Deploy Into Dev') {
+           stage ('Deploy Into Dev') {
                   steps {
                           script{
                                 try{
