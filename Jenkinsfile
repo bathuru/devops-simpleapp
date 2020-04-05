@@ -16,7 +16,7 @@ pipeline {
     stages {
          stage('Git Checkout') {
               when {
-                   branch 'master'
+                   branch 'spider'
               }
               steps {
                      echo pwd;
