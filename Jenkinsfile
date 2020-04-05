@@ -76,7 +76,7 @@ pipeline {
                           sh  "docker run  -d -p 8010:8080 --name simpleapp bathurudocker/simpleapp:${VER_NUM}"
                  }
          }
-
+    }
         post {
                failure {
                     echo “Pipeline finished”
@@ -87,6 +87,5 @@ pipeline {
                always {
                     echo “Pipeline finished”
                }
-      }
-  }
+        }
 }
