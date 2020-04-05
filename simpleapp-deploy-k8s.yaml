@@ -15,7 +15,7 @@ spec:
     port: 8080
     targetPort: 8080
 ---
-#  simpleapp Deployment
+#  Simpleapp Deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -31,7 +31,7 @@ spec:
         app: simpleapp-app
     spec:
       containers:
-        - name: dashboard
+        - name: simpleapp
           image: bathurudocker/simpleapp:latest
           ports:
             - containerPort: 8080

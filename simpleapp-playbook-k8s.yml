@@ -1,9 +1,9 @@
 ---
-  - hosts: all
+  - hosts: kubservers
 
 # Tasks Section
     tasks:
-     - name: Copy deploy file into kuber server
+     - name: Copy deploy file into Kubernetes Server
        copy:
          src: /home/ec2-user/simpleapp-deploy-k8s.yaml
          dest: /home/ec2-user/simpleapp-deploy-k8s.yaml
