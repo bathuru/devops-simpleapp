@@ -24,7 +24,9 @@ pipeline {
               }
          }
          stage("Maven Build") {
-              sh "${mavenHome}/bin/mvn clean versions:set -Dver=${VER_NUM} package "
+             steps {
+                    sh "${mavenHome}/bin/mvn clean versions:set -Dver=${VER_NUM} package "
+              }
          }
      }
 }
