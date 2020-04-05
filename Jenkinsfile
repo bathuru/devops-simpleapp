@@ -21,8 +21,8 @@ pipeline {
                 }
            }
 
-    stage('Multiple Builds) {
-          parallel {
+         stage ('Multiple Builds') {
+              parallel {
                   stage ("Maven Build") {
                         steps {
                             sh "${mavenHome}/bin/mvn clean versions:set -Dver=${VER_NUM} package "
@@ -33,8 +33,8 @@ pipeline {
                             echo "Gradel Build !!!!!!!"
                        }
                   }
+              }
           }
-     }
         stage('SonarQube Analysis') {
              steps {
                     withSonarQubeEnv('SonarQubeServer') {
