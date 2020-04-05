@@ -64,7 +64,7 @@ pipeline {
 
            stage ('Deploy Into Dev') {
                   steps {
-                          script{
+                          script{        // To add Scripted Pipeline sentences into a Declarative
                                 try{
                                      sh "docker rm -f simpleapp || true"
                                       sh "docker rmi bathurudocker/simpleapp || true"       //sh 'docker rmi $(docker images bathurudocker/simpleapp)''
