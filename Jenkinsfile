@@ -83,15 +83,5 @@ pipeline {
                     echo “Pipeline finished”
                     }
                }
-               success {
-               steps{
-                 echo “Pipeline finished”
-                 }
-               }
-               always {
-               steps{
-                 echo “Pipeline finished”
-                 }
-               }
         }
 }
