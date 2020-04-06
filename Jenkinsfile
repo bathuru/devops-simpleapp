@@ -3,7 +3,7 @@ pipeline {
           label 'master'
      }
     triggers {
-          pollSCM('0 */4 * * 1-5')
+          pollSCM('* * * * *')
     }
     environment {
           VER_NUM = "1.0.${BUILD_NUMBER}";
