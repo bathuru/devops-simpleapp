@@ -37,7 +37,7 @@ function display_ct() {
 
 <div class="jumbotron">
 	<div class="container">
-		<h2>${title}</h2>      <h6 id='ct'  style="text-align:right"></h6>
+		<h3>${title}</h3>      <h6 id='ct'  style="text-align:right"></h6>
 	</br>
 		<h4>
 			<c:if test="${not empty msg}">
@@ -56,7 +56,7 @@ function display_ct() {
 </div>
 <div class="container">
 	<div class="row">
-		<div class="col-md-8"> </br></br></br></br></br>
+		<div class="col-md-8"> </br></br></br>
 			<h4>Welcome To Mango Technologies, Hyderabad.</h4>
 			<h5>Contact @ +91-8886399946</h5>
 		</div>
