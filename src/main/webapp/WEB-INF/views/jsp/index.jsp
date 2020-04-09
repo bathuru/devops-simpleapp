@@ -71,7 +71,7 @@ function display_ct() {
 	<hr>
 	<footer>
 		<h5>&copy; Mango Technologies 2020</h5>
-				<h6 id='ct' style="text-align:right;></h6>
+				<h6 id='ct' style="text-align:right;"></h6>
 	</footer>
 </div>
 
