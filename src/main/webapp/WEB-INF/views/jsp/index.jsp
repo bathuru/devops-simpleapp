@@ -34,12 +34,12 @@
 			<a href="<c:url value='/hello/Srini' />" >Welcome</a>
 		</p>
 	</div>
+     </br></br></br></br></br></br></br></br></br></br></br></br>
 </div>
 
 <div class="container">
 	<div class="row">
 		<div class="col-md-8">
-			</br></br></br></br></br></br></br>
 			<h4>Welcome To Srini Technologies, Hyderabad.</h4>
 			<h5>Contact @ +91-8886399946</h5>
 		</div>
