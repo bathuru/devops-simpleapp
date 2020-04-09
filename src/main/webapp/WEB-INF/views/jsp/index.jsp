@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Maven + Spring MVC</title>
+<title>SimpleDevops</title>
 
 <spring:url value="/resources/core/css/hello.css" var="coreCss" />
 <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
@@ -18,17 +18,6 @@
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
 <script type="text/javascript" src="/resources/core/js/hello.js"></script>
-<script type="text/javascript">
-function display_c(){
-var refresh=1000; // Refresh rate in milli seconds
-mytime=setTimeout('display_ct()',refresh)
-}
-function display_ct() {
-	var x = new Date()
-	document.getElementById('ct').innerHTML = x;
-	display_c();
- }
-</script>
 </head>
 
 <body onload=display_ct();>
@@ -43,9 +32,8 @@ function display_ct() {
 <div class="jumbotron">
 	<div class="container">
 		<h3>${title}</h3>
-		<h6 id='ct' style="text-align:right;"></h6>
 	</br>
-		<h5>
+		<h4>
 			<c:if test="${not empty msg}">
 				 ${msg}
 			</c:if>
@@ -53,7 +41,7 @@ function display_ct() {
 			<c:if test="${empty msg}">
 				Welcome Welcome!
 			</c:if>
-		<h5>
+		<h4>
 			<a href="<c:url value='/hello/Srini' />" >Welcome</a>
 		</p>
 		<img src="${images}/devops.png" style="width:900px;height:250px;/></br>
@@ -63,14 +51,15 @@ function display_ct() {
 <div class="container">
 	<div class="row">
 		<div class="col-md-8"> </br></br></br>
-			<h4>Welcome To Mango Technologies, Hyderabad.</h4>
+			<h4>Welcome To Srini Devops Lab, Hyd.</h4>
 			<h5>Contact @ +91-8886399946</h5>
 		</div>
 	</div>
 
 	<hr>
 	<footer>
-		<h5>&copy; Mango Technologies 2020</h5>
+		<h5>&copy; Srini Labs 2020</h5>
+		<h6 id='ct' style="text-align:right;"></h6>
 	</footer>
 </div>
 
