@@ -11,12 +11,12 @@
 
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
+<script type="text/javascript" src="/resources/core/js/hello.js"></script>
 <script type="text/javascript">
 function display_c(){
 var refresh=1000; // Refresh rate in milli seconds
 mytime=setTimeout('display_ct()',refresh)
 }
-
 function display_ct() {
 	var x = new Date()
 	var x1=x.toUTCString();// changing the display to UTC string
@@ -24,22 +24,21 @@ function display_ct() {
 	tt=display_c();
  }
 </script>
-
 </head>
 
+<body onload=display_ct();>
 <nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">Simple App</a>
-			<body onload=display_ct();>
-      <span id='ct' ></span>
 		</div>
 	</div>
 </nav>
 
 <div class="jumbotron">
 	<div class="container">
-		<h2>${title}</h2></br>
+		<h2>${title}</h2>      <span id='ct'  align="right"></span>
+	</br>
 		<h4>
 			<c:if test="${not empty msg}">
 				 ${msg}
