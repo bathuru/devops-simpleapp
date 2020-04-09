@@ -19,9 +19,8 @@ mytime=setTimeout('display_ct()',refresh)
 }
 function display_ct() {
 	var x = new Date()
-	var x1=x.toUTCString();// changing the display to UTC string
-	document.getElementById('ct').innerHTML = x1;
-	tt=display_c();
+	document.getElementById('ct').innerHTML = x;
+	display_c();
  }
 </script>
 </head>
@@ -37,7 +36,13 @@ function display_ct() {
 
 <div class="jumbotron">
 	<div class="container">
-		<h3>${title}</h3>      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id='ct' ></span>
+		<h3>${title}</h3>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<span id='ct'  alig></span>
 	</br>
 		<h4>
 			<c:if test="${not empty msg}">
