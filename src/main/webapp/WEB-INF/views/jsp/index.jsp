@@ -43,7 +43,7 @@ function display_ct() {
 <div class="jumbotron">
 	<div class="container">
 		<h3>${title}</h3>
-		<h6 id='ct' style="text-align:right;></h6>
+		<h6 id='ct' style="text-align:right;"></h6>
 	</br>
 		<h4>
 			<c:if test="${not empty msg}">
@@ -71,7 +71,6 @@ function display_ct() {
 	<hr>
 	<footer>
 		<h5>&copy; Mango Technologies 2020</h5>
-				<h6 id='ct' ></h6>
 	</footer>
 </div>
 
