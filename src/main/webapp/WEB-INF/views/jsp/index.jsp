@@ -7,6 +7,7 @@
 
 <spring:url value="/resources/core/css/hello.css" var="coreCss" />
 <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
+<spring:url value="/resources/images" var="images" />
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
 </head>
@@ -14,7 +15,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#">Project Name</a>
+			<a class="navbar-brand" href="#">Simple App</a>
 		</div>
 	</div>
 </nav>
@@ -34,20 +35,22 @@
 			<a href="<c:url value='/hello/Srini' />" >Welcome</a>
 		</p>
 	</div>
-     </br></br></br></br></br></br></br></br></br></br></br></br>
+
+	  <img src="${images}/devops.png"/>
+     </br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 </div>
 
 <div class="container">
 	<div class="row">
 		<div class="col-md-8">
-			<h4>Welcome To Srini Technologies, Hyderabad.</h4>
+			<h4>Welcome To Mango Technologies, Hyderabad.</h4>
 			<h5>Contact @ +91-8886399946</h5>
 		</div>
 	</div>
 
 	<hr>
 	<footer>
-		<p>&copy; Srini Technologies 2020</p>
+		<p>&copy; Mango Technologies 2020</p>
 	</footer>
 </div>
 
