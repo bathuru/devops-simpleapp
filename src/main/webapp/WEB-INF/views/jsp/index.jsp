@@ -28,7 +28,7 @@
 			<c:if test="${not empty msg}">
 				 ${msg}
 			</c:if>
-     </br></br></br></br>
+     </br></br>
 			<c:if test="${empty msg}">
 				Welcome Welcome!
 			</c:if>
@@ -41,7 +41,7 @@
 </div>
 <div class="container">
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-8"> </br></br>
 			<h4>Welcome To Mango Technologies, Hyderabad.</h4>
 			<h5>Contact @ +91-8886399946</h5>
 		</div>
