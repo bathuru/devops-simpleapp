@@ -37,7 +37,7 @@ function display_ct() {
 
 <div class="jumbotron">
 	<div class="container">
-		<h3>${title}</h3>      <span id='ct'  style="text-align:right"></span>
+		<h3>${title}</h3>      <span id='ct'  style="align:right"></span>
 	</br>
 		<h4>
 			<c:if test="${not empty msg}">
