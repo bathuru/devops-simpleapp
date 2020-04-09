@@ -11,12 +11,28 @@
 
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
+<script type="text/javascript">
+function display_c(){
+var refresh=1000; // Refresh rate in milli seconds
+mytime=setTimeout('display_ct()',refresh)
+}
+
+function display_ct() {
+	var x = new Date()
+	var x1=x.toUTCString();// changing the display to UTC string
+	document.getElementById('ct').innerHTML = x1;
+	tt=display_c();
+ }
+</script>
+
 </head>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">Simple App</a>
+			<body onload=display_ct();>
+      <span id='ct' ></span>
 		</div>
 	</div>
 </nav>
@@ -41,7 +57,7 @@
 </div>
 <div class="container">
 	<div class="row">
-		<div class="col-md-8"> </br></br>
+		<div class="col-md-8"> </br></br></br></br></br>
 			<h4>Welcome To Mango Technologies, Hyderabad.</h4>
 			<h5>Contact @ +91-8886399946</h5>
 		</div>
@@ -49,7 +65,7 @@
 
 	<hr>
 	<footer>
-		<p>&copy; Mango Technologies 2020</p>
+		<h5>&copy; Mango Technologies 2020</h5>
 	</footer>
 </div>
 
