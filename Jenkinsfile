@@ -63,10 +63,10 @@ pipeline {
                                           }
                             }
                           sh "docker build -t bathurudocker/simpleapp:${VER_NUM} ."
-                          withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerpwd')]) {
+                          /*withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerpwd')]) {
                                  sh "docker login -u bathurudocker -p ${dockerpwd}"
                          }
-                          sh "docker push bathurudocker/simpleapp:${VER_NUM}"
+                          sh "docker push bathurudocker/simpleapp:${VER_NUM}" */
                           sh  "docker run  -d -p 8010:8080 --name simpleapp bathurudocker/simpleapp:${VER_NUM}"
                  }
           }

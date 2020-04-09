@@ -20,6 +20,6 @@ public class HelloWorldService {
 
 	public String getDesc() {
 		logger.debug("getDesc() is executed!");
-		return "Pipeline   ::    GitHub  >  Jenkins  >  Maven/Docker  >  Ansible  >  Kubernetes ";
+		return "Delivery Pipeline   ::    GitHub  >  Jenkins  >  Maven/Docker  >  Ansible  >  Kubernetes ";
 	}
 }
