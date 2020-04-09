@@ -7,7 +7,8 @@
 
 <spring:url value="/resources/core/css/hello.css" var="coreCss" />
 <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
-<spring:url value="/resources/images" var="images" />
+<spring:url value="/resources/core/images" var="images" />
+
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
 </head>
