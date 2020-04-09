@@ -35,10 +35,10 @@
 		<h4>
 			<a href="<c:url value='/hello/Srini' />" >Welcome</a>
 		</p>
+		<img src="${images}/devops.png" style="width:1000px;height:300px;/>
+		 </br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 	</div>
 
-	  <img src="${images}/devops.png" style="width:1000px;height:400px;/>
-     </br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 </div>
 
 <div class="container">
