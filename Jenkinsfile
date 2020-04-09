@@ -35,6 +35,7 @@ pipeline {
                   }
               }
           }
+          /*
         stage('SonarQube Analysis') {
              steps {
                     withSonarQubeEnv('SonarQubeServer') {
@@ -50,7 +51,7 @@ pipeline {
                            mavenAssetList: [[classifier: '', extension: '', filePath: "${WORKSPACE}/target/simpleapp-${REL_NUM}.war"]],
                            mavenCoordinate: [artifactId: 'simpleapp', groupId: 'com.apple', packaging: 'war', version: "${REL_NUM}"]]]
                    }
-          }
+          }*/
           stage('Build & Push Docker Image') {
                   steps {
                         sh "docker build -t bathurudocker/simpleapp:${VER_NUM} ."
