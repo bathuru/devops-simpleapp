@@ -37,7 +37,7 @@
 		</p>
 	</div>
 
-	  <img src="${images}/devops.png"/>
+	  <img src="${images}/devops.png" style="width:500px;height:600px;/>
      </br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 </div>
 
