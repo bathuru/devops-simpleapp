@@ -21,27 +21,26 @@
 
 <div class="jumbotron">
 	<div class="container">
-		<h1>${title}</h1>
-		<p>
+		<h2>${title}</h2>
+		<h4>
 			<c:if test="${not empty msg}">
-				Hello ${msg}
+				 ${msg}
 			</c:if>
 
 			<c:if test="${empty msg}">
 				Welcome Welcome!
 			</c:if>
-		<p>
+		<h4>
 			<a href="<c:url value='/hello/Srini' />" >Welcome</a>
 		</p>
 	</div>
 </div>
 
 <div class="container">
-
 	<div class="row">
 		<div class="col-md-8">
-			<h2>Welcome To Srini Technologies, Hyderabad.</h2>
-			<h3>Contact @ +91-8886399946</h3>
+			<h3>Welcome To Srini Technologies, Hyderabad.</h3>
+			<h3>Contact @ +91-8886399946</h4>
 		</div>
 	</div>
 

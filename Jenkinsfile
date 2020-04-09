@@ -54,29 +54,22 @@ pipeline {
           }*/
           stage('Build & Push Docker Image') {
                   steps {
-                        sh "docker build -t bathurudocker/simpleapp:${VER_NUM} ."
-                        withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerpwd')]) {
-                            sh "docker login -u bathurudocker -p ${dockerpwd}"
-                        }
-                      sh "docker push bathurudocker/simpleapp:${VER_NUM}"
-                      sh "docker rmi bathurudocker/simpleapp:${VER_NUM}"
-                 }
-          }
-
-           stage ('Deploy Into Dev') {
-                  steps {
                           script{        // To add Scripted Pipeline sentences into a Declarative
-                                try{
-                                     sh "docker rm -f simpleapp || true"
-                                      sh "docker rmi bathurudocker/simpleapp || true"       //sh 'docker rmi $(docker images bathurudocker/simpleapp)''
-                                }catch(error){
-                                   //  do nothing if there is an exception
-                                }
-                          }
-                          sh "docker pull bathurudocker/simpleapp:${VER_NUM}"
+                                    try{
+                                             sh "docker rm -f simpleapp || true"
+                                             sh "docker rmi bathurudocker/simpleapp || true"       //sh 'docker rmi $(docker images bathurudocker/simpleapp)''
+                                          }catch(error){
+                                          //  do nothing if there is an exception
+                                          }
+                            }
+                          sh "docker build -t bathurudocker/simpleapp:${VER_NUM} ."
+                          withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerpwd')]) {
+                                 sh "docker login -u bathurudocker -p ${dockerpwd}"
+                         }
+                          sh "docker push bathurudocker/simpleapp:${VER_NUM}"
                           sh  "docker run  -d -p 8010:8080 --name simpleapp bathurudocker/simpleapp:${VER_NUM}"
                  }
-         }
+          }
     }
     post {
            success {
