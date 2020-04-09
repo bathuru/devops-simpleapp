@@ -33,7 +33,7 @@
 	<div class="container">
 		<h3>${title}</h3>
 	</br>
-		<h4>
+		<h5>
 			<c:if test="${not empty msg}">
 				 ${msg}
 			</c:if>
@@ -41,7 +41,7 @@
 			<c:if test="${empty msg}">
 				Welcome Welcome!
 			</c:if>
-		<h4>
+		<h5>
 			<a href="<c:url value='/hello/Srini' />" >Welcome</a>
 		</p>
 		<img src="${images}/devops.png" style="width:900px;height:250px;/></br>
@@ -55,7 +55,6 @@
 			<h5>Contact @ +91-8886399946</h5>
 		</div>
 	</div>
-
 	<hr>
 	<footer>
 		<h5>&copy; Srini Labs 2020</h5>
