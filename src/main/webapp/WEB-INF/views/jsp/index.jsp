@@ -21,7 +21,7 @@
 
 <div class="jumbotron">
 	<div class="container">
-		<h2>${title}</h2>
+		<h2>${title}</h2></br>
 		<h4>
 			<c:if test="${not empty msg}">
 				 ${msg}
@@ -39,8 +39,8 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-8">
-			<h3>Welcome To Srini Technologies, Hyderabad.</h3>
-			<h3>Contact @ +91-8886399946</h4>
+			<h4>Welcome To Srini Technologies, Hyderabad.</h4>
+			<h5>Contact @ +91-8886399946</h5>
 		</div>
 	</div>
 
