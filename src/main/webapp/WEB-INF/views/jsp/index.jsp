@@ -45,7 +45,7 @@ function display_ct() {
 		<h3>${title}</h3>
 		<h6 id='ct' style="text-align:right;"></h6>
 	</br>
-		<h6>
+		<h5>
 			<c:if test="${not empty msg}">
 				 ${msg}
 			</c:if>
@@ -53,10 +53,10 @@ function display_ct() {
 			<c:if test="${empty msg}">
 				Welcome Welcome!
 			</c:if>
-		<h6>
+		<h5>
 			<a href="<c:url value='/hello/Srini' />" >Welcome</a>
 		</p>
-		<img src="${images}/devops.png" style="width:1000px;height:250px;/></br>
+		<img src="${images}/devops.png" style="width:900px;height:250px;/></br>
 	</div>
 
 </div>
