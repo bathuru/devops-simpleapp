@@ -1,9 +1,13 @@
+# play-book start & end with --- (Three dots)
 ---
-  - hosts: kubservers
+# Header Section
+  - name: Play to Deploy simpleapp in Kubernetes
+    hosts: kubservers
+    become_user: ec2-user
 
 # Tasks Section
-    tasks:
-     - name: Copy deploy file into Kubernetes Server
+    tasks:  
+     - name: Copy deployment file from Jekins Server into Kubernetes Server
        copy:
          src: /home/ec2-user/simpleapp-deploy-k8s.yaml
          dest: /home/ec2-user/simpleapp-deploy-k8s.yaml
@@ -13,3 +17,4 @@
 
      - name: Deploy simpleapp in kubernets
        command: kubectl apply -f simpleapp-deploy-k8s.yaml
+---
