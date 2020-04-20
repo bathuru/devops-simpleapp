@@ -1,4 +1,4 @@
-#simpleapp Service
+# Simpleapp NodePort Service
 ---
 apiVersion: v1
 kind: Service
