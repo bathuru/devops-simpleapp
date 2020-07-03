@@ -1,4 +1,4 @@
-FROM tomcat:8.0.20-jre8
+FROM tomcat:alpine
 MAINTAINER srinivas.bathuru@gmail.com
 
 ENV TOMCAT_PATH /usr/local/tomcat/webapps/
