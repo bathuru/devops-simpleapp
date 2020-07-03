@@ -37,7 +37,7 @@ pipeline {
               }
           }
 
-         stage ('Upload to Nexus') {
+         stage ('Nexus Upload') {
                   steps {
                           echo pwd;
                            nexusPublisher  nexusInstanceId: 'AppleNexusRepo',
@@ -48,12 +48,13 @@ pipeline {
                    }
           }
 
-          stage('Build & Push Docker Image') {    
+          stage('Docker Build & Push') {    
                   steps {
                           script{        // To add Scripted Pipeline sentences into a Declarative
                                     try{
-                                             sh "docker rm -f simpleapp || true"
-                                             sh "docker rmi bathurudocker/simpleapp || true"       //sh 'docker rmi $(docker images bathurudocker/simpleapp)''
+                                            sh "echo pwd"
+                                             //sh "docker rm -f simpleapp || true"
+                                             //sh "docker rmi bathurudocker/simpleapp || true"       //sh 'docker rmi $(docker images bathurudocker/simpleapp)''
                                           }catch(error){
                                           //  do nothing if there is an exception
                                           }
