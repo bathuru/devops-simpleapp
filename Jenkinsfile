@@ -11,7 +11,7 @@ pipeline {
           mavenHome =  tool name: "Maven Master", type: "maven"
      }
     tools{
-          maven 'Maven Master'
+          //maven 'Maven Master'
      }
     stages {
            stage ('Git Checkout') {
