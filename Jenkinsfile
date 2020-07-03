@@ -23,11 +23,11 @@ pipeline {
 
          stage ('Multiple Builds') {
               parallel {
-                  stage ("Maven Build") {
+               /*   stage ("Maven Build") {
                         steps {
                             sh "${mavenHome}/bin/mvn clean versions:set -Dver=${VER_NUM} package "
                        }
-                  }
+                  }*/
                   stage ("Gradel Build") {
                         steps {
                             echo "Gradel Build !!!!!!!"
