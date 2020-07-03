@@ -10,9 +10,9 @@ pipeline {
           REL_NUM = "1.0.${BUILD_NUMBER}.RELEASE";
           mavenHome =  tool name: "Maven Master", type: "maven"
      }
-    tools{
-          //maven 'Maven Master'
-     }
+/*    tools{
+          maven 'Maven Master'
+     }*/
     stages {
            stage ('Git Checkout') {
                  steps {
