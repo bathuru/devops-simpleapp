@@ -56,16 +56,16 @@ pipeline {
                         sh "${mavenHome}/bin/mvn sonar:sonar"
                      }
              }
-         }
+         }*/
          stage ('Upload to Nexus') {
                   steps {
-                           nexusPublisher  nexusInstanceId: 'NexusRepoServer',
-                           nexusRepositoryId: 'DevopsRepo',
+                           nexusPublisher  nexusInstanceId: 'AppleNexusRepo',
+                           nexusRepositoryId: 'SimpleappRepo',
                            packages: [[$class: 'MavenPackage',
                            mavenAssetList: [[classifier: '', extension: '', filePath: "${WORKSPACE}/target/simpleapp-${REL_NUM}.war"]],
                            mavenCoordinate: [artifactId: 'simpleapp', groupId: 'com.apple', packaging: 'war', version: "${REL_NUM}"]]]
                    }
-          }*/
+          }
           /*
           stage('Build & Push Docker Image') {    
                   steps {
