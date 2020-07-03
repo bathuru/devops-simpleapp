@@ -35,6 +35,20 @@ pipeline {
                   }
               }
           }
+
+          stage('Build & Push Docker Image') {    
+                  steps {
+                          script{        // To add Scripted Pipeline sentences into a Declarative
+                                    try{
+                                             sh "docker rm -f simpleapp || true"
+                                             sh "docker rmi bathurudocker/simpleapp || true"       //sh 'docker rmi $(docker images bathurudocker/simpleapp)''
+                                          }catch(error){
+                                          //  do nothing if there is an exception
+                                          }
+                            }
+                          sh "docker build -t bathurudocker/simpleapp:${VER_NUM} ."
+                 } 
+          }
           /*
         stage('SonarQube Analysis') {
              steps {
