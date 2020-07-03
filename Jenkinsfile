@@ -41,7 +41,7 @@ pipeline {
                   steps {
                           echo pwd;
                            nexusPublisher  nexusInstanceId: 'AppleNexusRepo',
-                           nexusRepositoryId: 'SimpleappRepo',
+                           nexusRepositoryId: 'simpleappRepo',
                            packages: [[$class: 'MavenPackage',
                            mavenAssetList: [[classifier: '', extension: '', filePath: "${WORKSPACE}/target/simpleapp-${REL_NUM}.war"]],
                            mavenCoordinate: [artifactId: 'simpleapp', groupId: 'com.apple', packaging: 'war', version: "${REL_NUM}"]]]
