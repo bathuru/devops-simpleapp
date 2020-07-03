@@ -25,6 +25,7 @@ pipeline {
               parallel {
                   stage ("Maven Build") {
                         steps {
+                             echo pwd;
                             sh "${mavenHome}/bin/mvn clean versions:set -Dver=${VER_NUM} package "
                        }
                   }
@@ -34,6 +35,17 @@ pipeline {
                        }
                   }
               }
+          }
+
+         stage ('Upload to Nexus') {
+                  steps {
+                          echo pwd;
+                           nexusPublisher  nexusInstanceId: 'AppleNexusRepo',
+                           nexusRepositoryId: 'SimpleappRepo',
+                           packages: [[$class: 'MavenPackage',
+                           mavenAssetList: [[classifier: '', extension: '', filePath: "${WORKSPACE}/target/simpleapp-${REL_NUM}.war"]],
+                           mavenCoordinate: [artifactId: 'simpleapp', groupId: 'com.apple', packaging: 'war', version: "${REL_NUM}"]]]
+                   }
           }
 
           stage('Build & Push Docker Image') {    
@@ -57,15 +69,7 @@ pipeline {
                      }
              }
          }*/
-         stage ('Upload to Nexus') {
-                  steps {
-                           nexusPublisher  nexusInstanceId: 'AppleNexusRepo',
-                           nexusRepositoryId: 'SimpleappRepo',
-                           packages: [[$class: 'MavenPackage',
-                           mavenAssetList: [[classifier: '', extension: '', filePath: "${WORKSPACE}/target/simpleapp-${REL_NUM}.war"]],
-                           mavenCoordinate: [artifactId: 'simpleapp', groupId: 'com.apple', packaging: 'war', version: "${REL_NUM}"]]]
-                   }
-          }
+
           /*
           stage('Build & Push Docker Image') {    
                   steps {
