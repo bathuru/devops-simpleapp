@@ -17,7 +17,7 @@ pipeline {
            stage ('Git Checkout') {
                  steps {
                      echo pwd;
-                     git url: 'https://github.com/bathurugithub/simpleapp.git',  branch: 'master'
+                     git credentialsId: 'github-credentials' , url: 'https://github.com/bathurugithub/simpleapp.git',  branch: 'master'   
                 }
            }
 
@@ -52,7 +52,7 @@ pipeline {
                            mavenCoordinate: [artifactId: 'simpleapp', groupId: 'com.apple', packaging: 'war', version: "${REL_NUM}"]]]
                    }
           }*/
-          /*
+          
           stage('Build & Push Docker Image') {
                   steps {
                           script{        // To add Scripted Pipeline sentences into a Declarative
@@ -70,7 +70,7 @@ pipeline {
                           sh "docker push bathurudocker/simpleapp:${VER_NUM}" */
                           //sh  "docker run  -d -p 8010:8080 --name simpleapp bathurudocker/simpleapp:${VER_NUM}"
                  //} 
-          //} //
+          }
     }
     post {
            success {
