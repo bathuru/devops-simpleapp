@@ -1,4 +1,4 @@
-FROM tomcat:alpine
+FROM tomcat:alpine  as build
 MAINTAINER srinivas.bathuru@gmail.com
 
 ENV TOMCAT_PATH /usr/local/tomcat/webapps/
@@ -10,7 +10,10 @@ ENV APP_NAME simpleapp
 
 COPY target/$APP_NAME*.war   $TOMCAT_PATH/$APP_NAME.war
 
+FROM tomcat:alpine
+COPY --from=build   /usr/local/tomcat/webapps/simpleapp.war   /usr/local/tomcat/webapps/
 EXPOSE 8080
+
 
 # COPY tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
 # COPY target/simpleapp*.war /usr/local/tomcat/webapps/simpleapp.war
