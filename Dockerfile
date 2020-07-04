@@ -11,7 +11,7 @@ ENV APP_NAME simpleapp
 COPY target/$APP_NAME*.war   $TOMCAT_PATH/$APP_NAME.war
 
 FROM alpine
-COPY --from=build   /usr/local/tomcat/webapps/simpleapp.war   /usr/local/tomcat/webapps/
+COPY --from=build   /usr/local/tomcat/   /usr/local/tomcat/
 EXPOSE 8080
 
 
