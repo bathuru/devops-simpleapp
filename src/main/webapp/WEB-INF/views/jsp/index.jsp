@@ -24,7 +24,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#">Simple App</a>
+			<a class="navbar-brand" href="#">linux | github | jenkins | ansible | docker | k8s | promotheus </a>
 		</div>
 	</div>
 </nav>
@@ -50,14 +50,14 @@
 </div>
 <div class="container">
 	<div class="row">
-		<div class="col-md-8"> </br></br></br>
-			<h4>Welcome To Srini Devops Lab, Hyd.</h4>
-			<h5>Contact @ +91-8886399946</h5>
+		<div class="col-md-8"> </br></br></br></br></br>
+			<h4>Srini Devops Lab, Hyd.</h4>
+			<h5>Contact @ +91-9876543210</h5>
 		</div>
 	</div>
 	<hr>
 	<footer>
-		<h5>&copy; Srini Labs 2020</h5>
+		<h5>&copy; Srini Labs 2021</h5>
 		<h6 id='ct' style="text-align:right;"></h6>
 	</footer>
 </div>

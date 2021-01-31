@@ -12,14 +12,14 @@ public class HelloWorldService {
 	public String getTitle(String name) {
 		logger.debug("getTitle() is executed! $name : {}", name);
 		if(StringUtils.isEmpty(name)){
-			return "Hello DevOps !!!";
+			return "Welcome DevOps !!!";
 		}else{
-			return "Hello " + name;
+			return "Welcome " + name;
 		}
 	}
 
 	public String getDesc() {
 		logger.debug("getDesc() is executed!");
-		return "Delivery Pipeline   ::    GitHub  >  Jenkins  >  Maven/Docker  >  Ansible  >  Kubernetes ";
+		return " ";
 	}
 }
